@@ -1,0 +1,44 @@
+header{
+    background-color: #19376D;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+header nav{
+    display: flex;
+    
+
+}
+header nav a{
+    padding: 20px;
+    padding-right: 10%;
+    text-decoration: none;
+    color: white;
+    border-right: 1px solid white;
+}
+header a:hover{
+    background-color:#002B5B ;
+}
+header a:active{
+  background-color:#0B2447 ;
+}
+main{
+ margin-top: 100px;
+}
+footer{
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 2px solid;
+    padding: 10px;
+    
+    
+}
+footer img{
+    height: 30px;
+    padding-left: 20px;
+}
+
