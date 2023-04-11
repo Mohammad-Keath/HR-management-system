@@ -1,13 +1,27 @@
 'use strict';
+const form = document.getElementById('form');
+const adminstrationSec = document.getElementById('adminstrationSec')
+const marketingSec = document.getElementById('marketingSec')
+const developmentSec = document.getElementById('developmentSec')
+const financeSec = document.getElementById('financeSec')
+
 let employeeList = [];
-function employee(employeeID,fullName,department,level,image,salary){
-    this.id = employeeID;
+function employee(fullName,department,level,image){
     this.fName=fullName;
     this.department=department
     this.level=level;
     this.img=image;
    
     employeeList.push(this)
+}
+employee.prototype.idNum = function(){
+     let id = (Math.floor(Math.random()*9000)+1000)
+    for (let i=0;i<employeeList.length;i++){
+        if (employeeList[i].idNum == id ){
+            this.idNum()
+        }
+    }
+   return id
 }
 employee.prototype.Salary= function(){
     if (this.level == "Senior" || this.level == "senior"){
@@ -25,16 +39,142 @@ employee.prototype.netSalary= function(){
     return this.Salary * 0.925
 }
 employee.prototype.render= function(){
-    document.write(`employee name: ${this.fName} and his salary is: ${this.Salary()}/   `)
-}
-let Ghazi = new employee(1000,'Ghazi Samer','Administration','Senior')
-let lan = new employee(1001,'Lana Ali','finance','Senior')
-let tamara = new employee(1002,'Tamara Ayoub','Marketing','Senior')
-let safi = new employee(1003,'Safi Walid','Administration','Mid-Senior')
-let omar = new employee(1004,'Omar Zaid','Development','Senior')
-let Rana = new employee(1005,'Rana Saleh','Development','Junior')
-let hadi = new employee(1006,'Hadi Ahmad','Finance','Mid-Senior')
+    
+    if(this.department == "adminstration"){
+        
+    let divEl = document.createElement('div')
 
-for(let i = 0;i<employeeList.length;i++){
-    employeeList[i].render();
+    let imgEl = document.createElement('img')
+    imgEl.src=this.img
+    divEl.appendChild(imgEl)
+
+    let nameEl = document.createElement('t3')
+    nameEl.textContent=`Name: ${this.fName} `
+    divEl.appendChild(nameEl)
+
+    let idEl = document.createElement('p')
+    idEl.textContent=`ID: ${this.idNum()} `
+    divEl.appendChild(idEl)
+
+    let departmentEl = document.createElement('p')
+    departmentEl.textContent=`Department: ${this.department} `
+    divEl.appendChild(departmentEl)
+
+    let levelEl = document.createElement('p')
+    levelEl.textContent= `Level: ${this.level} `
+    divEl.appendChild(levelEl)
+
+    let salaryEl = document.createElement('p')
+    salaryEl.textContent=`Salary: ${this.Salary()} JD`
+    divEl.appendChild(salaryEl)
+    adminstrationSec.appendChild(divEl)}
+    else if(this.department == "marketing"){
+
+        let divEl = document.createElement('div')
+        
+
+        let imgEl = document.createElement('img')
+        imgEl.src=this.img
+        divEl.appendChild(imgEl)
+    
+        let nameEl = document.createElement('t3')
+        nameEl.textContent=`Name: ${this.fName} `
+        divEl.appendChild(nameEl)
+    
+        let idEl = document.createElement('p')
+        idEl.textContent=`ID: ${this.idNum()} `
+        divEl.appendChild(idEl)
+    
+        let departmentEl = document.createElement('p')
+        departmentEl.textContent=`Department: ${this.department} `
+        divEl.appendChild(departmentEl)
+    
+        let levelEl = document.createElement('p')
+        levelEl.textContent= `Level: ${this.level} `
+        divEl.appendChild(levelEl)
+    
+        let salaryEl = document.createElement('p')
+        salaryEl.textContent=`Salary: ${this.Salary()} JD`
+        divEl.appendChild(salaryEl)
+        marketingSec.appendChild(divEl)}
+        else if(this.department == "development"){
+           
+            let divEl = document.createElement('div')
+            
+
+            let imgEl = document.createElement('img')
+            imgEl.src=this.img
+            divEl.appendChild(imgEl)
+        
+            let nameEl = document.createElement('t3')
+            nameEl.textContent=`Name: ${this.fName} `
+            divEl.appendChild(nameEl)
+        
+            let idEl = document.createElement('p')
+            idEl.textContent=`ID: ${this.idNum()} `
+            divEl.appendChild(idEl)
+        
+            let departmentEl = document.createElement('p')
+            departmentEl.textContent=`Department: ${this.department} `
+            divEl.appendChild(departmentEl)
+        
+            let levelEl = document.createElement('p')
+            levelEl.textContent= `Level: ${this.level} `
+            divEl.appendChild(levelEl)
+        
+            let salaryEl = document.createElement('p')
+            salaryEl.textContent=`Salary: ${this.Salary()} JD`
+            divEl.appendChild(salaryEl)
+            developmentSec.appendChild(divEl)}
+            else if(this.department == "finance"){
+               
+                let divEl = document.createElement('div')
+                
+                let imgEl = document.createElement('img')
+                imgEl.src=this.img
+                divEl.appendChild(imgEl)
+            
+                let nameEl = document.createElement('t3')
+                nameEl.textContent=`Name: ${this.fName} `
+                divEl.appendChild(nameEl)
+            
+                let idEl = document.createElement('p')
+                idEl.textContent=`ID: ${this.idNum()} `
+                divEl.appendChild(idEl)
+            
+                let departmentEl = document.createElement('p')
+                departmentEl.textContent=`Department: ${this.department} `
+                divEl.appendChild(departmentEl)
+            
+                let levelEl = document.createElement('p')
+                levelEl.textContent= `Level: ${this.level} `
+                divEl.appendChild(levelEl)
+            
+                let salaryEl = document.createElement('p')
+                salaryEl.textContent=`Salary: ${this.Salary()} JD`
+                divEl.appendChild(salaryEl)
+                financeSec.appendChild(divEl)}
+
+}
+//let Ghazi = new employee('Ghazi Samer','Administration','Senior')
+//let lan = new employee('Lana Ali','finance','Senior')
+//let tamara = new employee('Tamara Ayoub','Marketing','Senior')
+//let safi = new employee('Safi Walid','Administration','Mid-Senior')
+//let omar = new employee('Omar Zaid','Development','Senior')
+//let Rana = new employee('Rana Saleh','Development','Junior')
+//let hadi = new employee('Hadi Ahmad','Finance','Mid-Senior')
+
+//for(let i = 0;i<employeeList.length;i++){
+//    employeeList[i].render();
+//}
+
+form.addEventListener('submit',submition)
+function submition(event){
+    event.preventDefault()
+    let fName = event.target.fName.value;
+    let department = event.target.department.value;
+    let level = event.target.level.value;
+    let img = event.target.imageLink.value;
+    let newEmployee = new employee(fName,department,level,img)
+    newEmployee.render()
 }
