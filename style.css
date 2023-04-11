@@ -15,7 +15,7 @@ header nav a{
     padding-right: 10%;
     text-decoration: none;
     color: white;
-    border-right: 1px solid white;
+    border-right: 1px solid black;
 }
 header a:hover{
     background-color:#002B5B ;
@@ -24,7 +24,76 @@ header a:active{
   background-color:#0B2447 ;
 }
 main{
- margin-top: 100px;
+ margin-top: 6px;
+ padding-top: 50px;
+}
+main h2{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 202px;
+    padding-left: 10px;
+    font-size: 17px;
+    font: bold;
+  
+    background-color: #576CBC;
+    text-align: center;
+    color: white;
+    position:sticky;
+    top: 56px;
+    width:100% ;
+}
+#form fieldset{
+    display: flex;
+flex-direction: column;
+width: 7%;
+padding: 10px;
+
+
+}
+label{padding: 5px;
+font-size: 15px;
+
+}
+legend{
+    font-size: 18px;
+    font: bold;
+    border: 2px solid black;
+    padding: 10px;
+    width:160px ;
+    text-align: center;
+    color: white;
+    
+    
+}
+#form{
+
+    position: fixed;
+    left: 0;
+    height: 100%;
+    background-color: #576CBC;
+    
+    padding-top: 60px;
+    border-right: 2px solid;
+   
+}
+
+section{
+    padding-top:px;
+    margin-left: 240px;
+    display: flex;
+    flex-wrap: wrap;
+}
+section div{
+    margin: 45px ;
+    width: 200px;
+    padding: 10px;
+    background-color: #A5D7E8;
+    text-align: center;
+    border: 1px solid;
+    
+}
+img{
+    width: 200px;
 }
 footer{
     display: flex;
@@ -34,11 +103,13 @@ footer{
     width: 100%;
     border-top: 2px solid;
     padding: 10px;
+    background-color: white
     
     
 }
 footer img{
     height: 30px;
+    width: 30px;
     padding-left: 20px;
 }
 

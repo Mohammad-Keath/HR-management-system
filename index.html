@@ -10,6 +10,7 @@
 </head>
 <body>
     <header>
+        
         <nav>
             <a href="./index.html">Home</a>
             <a href="./accounting.html">Accounting</a>
@@ -17,6 +18,63 @@
 
     </header>
     <main>
+        <form id="form" action="">
+            <fieldset>
+                <legend>
+                <h3>Employee</h3> 
+                </legend>
+                <br>
+                <label for="">Full name</label>
+                <input type="text" id="fName" name="fName">
+                <br>
+                <label for="">Department</label>
+                <select name="department" id="department">
+                    <option value=""></option>
+                    <option value="adminstration">Adminstration</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="development">Development</option>
+                    <option value="finance">Finance</option>
+                </select>
+                <br>
+                <label for="">Level</label>
+                <select name="level" id="level">
+                    <option value=""></option>
+                    <option value="junior">Junior</option>
+                    <option value="mid-senior">Mid-Senior</option>
+                    <option value="senior">Senior</option>
+                </select>
+                <br>
+                <label for="image">Image URL</label>
+                <input type="text" id="imageLink" name="imageLimk">
+                <br>
+                <input type="submit" id="submit" value="add new employee">
+
+
+            </fieldset>
+        </form>
+        <div>
+        <h2>adminstration</h2>
+        <section id="adminstrationSec">
+        </div>
+
+        </section>
+        <div>
+
+        <h2>marketing</h2>
+        <section id="marketingSec">
+        </div>
+
+        </section>
+        <div>
+
+        <h2>development</h2>
+        <section id="developmentSec"></section>
+    </div>
+    <div>
+
+        <h2>finance</h2>        
+        <section id="financeSec"></section>
+    </div>
       <script src="./app.js"></script>
     </main>
     <footer>
