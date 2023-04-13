@@ -168,7 +168,7 @@ for(let i = 0;i<employeeList.length;i++){
     employeeList[i].render();
     
 }
-console.log(employeeList)
+
 
 form.addEventListener('submit',submition)
 function submition(event){
@@ -179,4 +179,27 @@ function submition(event){
     let img = event.target.imageLink.value;
     let newEmployee = new employee(fName,department,level,img)
     newEmployee.render()
+    saveData(employeeList)
 }
+console.log(employeeList[0].Salary())
+function saveData(data){
+    let stringifyData = JSON.stringify(data)
+    localStorage.setItem('employee',stringifyData)
+    let salaries =[]
+     for (let i =0;i<employeeList.length;i++){
+salaries.push(employeeList[i].Salary())
+    }
+    localStorage.setItem('salaries',salaries)
+}
+function getData(){
+    let callData = localStorage.getItem('employee')
+    let dataArr = JSON.parse(callData)
+    for (let i =7;i<dataArr.length;i++){
+        new employee(dataArr[i].fName,dataArr[i].department,dataArr[i].level,dataArr[i].img)
+        employeeList[i].render();
+    }
+  
+    
+}
+getData();
+console.log(employeeList)
