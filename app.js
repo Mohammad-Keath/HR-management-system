@@ -156,17 +156,19 @@ employee.prototype.render= function(){
                 financeSec.appendChild(divEl)}
 
 }
-//let Ghazi = new employee('Ghazi Samer','Administration','Senior')
-//let lan = new employee('Lana Ali','finance','Senior')
-//let tamara = new employee('Tamara Ayoub','Marketing','Senior')
-//let safi = new employee('Safi Walid','Administration','Mid-Senior')
-//let omar = new employee('Omar Zaid','Development','Senior')
-//let Rana = new employee('Rana Saleh','Development','Junior')
-//let hadi = new employee('Hadi Ahmad','Finance','Mid-Senior')
+let Ghazi = new employee('Ghazi Samer','adminstration','Senior','./photoes/Ghazi.jpg')
+let lana = new employee('Lana Ali','finance','Senior','./photoes/Lana.jpg')
+let tamara = new employee('Tamara Ayoub','marketing','Senior','./photoes/Tamara.jpg')
+let safi = new employee('Safi Walid','adminstration','Mid-Senior','./photoes/Safi.jpg')
+let omar = new employee('Omar Zaid','development','Senior','./photoes/Omar.jpg')
+let Rana = new employee('Rana Saleh','development','Junior','./photoes/Rana.jpg')
+let hadi = new employee('Hadi Ahmad','finance','Mid-Senior','./photoes/Hadi.jpg')
 
-//for(let i = 0;i<employeeList.length;i++){
-//    employeeList[i].render();
-//}
+for(let i = 0;i<employeeList.length;i++){
+    employeeList[i].render();
+    
+}
+console.log(employeeList)
 
 form.addEventListener('submit',submition)
 function submition(event){

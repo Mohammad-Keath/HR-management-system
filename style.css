@@ -43,7 +43,6 @@ main h2{
     color: white;
     position:sticky;
     top: 55px;
-    width:85.9% ;
 }
 #form fieldset{
     display: flex;
