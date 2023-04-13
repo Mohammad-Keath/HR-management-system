@@ -26,7 +26,7 @@ header a:active{
 }
 main{
  margin-top: 56.3px;
- padding-top: px;
+ 
  
 }
 main h2{
@@ -42,7 +42,7 @@ main h2{
     text-align: center;
     color: white;
     position:sticky;
-    top: 55px;
+    top: 56px;
 }
 #form fieldset{
     display: flex;
@@ -96,6 +96,7 @@ section div{
 }
 img{
     width: 200px;
+    height: 150px;
 }
 footer{
     display: flex;
@@ -113,5 +114,10 @@ footer img{
     height: 30px;
     width: 30px;
     padding-left: 20px;
+}
+table, th,td{
+    border: 1px solid;
+    padding: 20px;
+    margin: 10px;
 }
 
