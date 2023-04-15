@@ -6,11 +6,12 @@ const developmentSec = document.getElementById('developmentSec')
 const financeSec = document.getElementById('financeSec')
 
 let employeeList = [];
-function employee(fullName,department,level,image){
+function employee(fullName,department,level,image,salary){
     this.fName=fullName;
     this.department=department
     this.level=level;
     this.img=image;
+    this.Salary= salary || this.calculateSalary()
    
     employeeList.push(this)
 }
@@ -23,7 +24,7 @@ employee.prototype.idNum = function(){
     }
    return id
 }
-employee.prototype.Salary= function(){
+employee.prototype.calculateSalary= function(){
     if (this.level == "Senior" || this.level == "senior"){
         return  Math.floor(Math.random() * (2000 - 1500) ) + 1500;
     }
@@ -65,7 +66,7 @@ employee.prototype.render= function(){
     divEl.appendChild(levelEl)
 
     let salaryEl = document.createElement('p')
-    salaryEl.textContent=`Salary: ${this.Salary()} JD`
+    salaryEl.textContent=`Salary: ${this.Salary} JD`
     divEl.appendChild(salaryEl)
     adminstrationSec.appendChild(divEl)}
     else if(this.department == "marketing"){
@@ -94,7 +95,7 @@ employee.prototype.render= function(){
         divEl.appendChild(levelEl)
     
         let salaryEl = document.createElement('p')
-        salaryEl.textContent=`Salary: ${this.Salary()} JD`
+        salaryEl.textContent=`Salary: ${this.Salary} JD`
         divEl.appendChild(salaryEl)
         marketingSec.appendChild(divEl)}
         else if(this.department == "development"){
@@ -123,7 +124,7 @@ employee.prototype.render= function(){
             divEl.appendChild(levelEl)
         
             let salaryEl = document.createElement('p')
-            salaryEl.textContent=`Salary: ${this.Salary()} JD`
+            salaryEl.textContent=`Salary: ${this.Salary} JD`
             divEl.appendChild(salaryEl)
             developmentSec.appendChild(divEl)}
             else if(this.department == "finance"){
@@ -151,7 +152,7 @@ employee.prototype.render= function(){
                 divEl.appendChild(levelEl)
             
                 let salaryEl = document.createElement('p')
-                salaryEl.textContent=`Salary: ${this.Salary()} JD`
+                salaryEl.textContent=`Salary: ${this.Salary} JD`
                 divEl.appendChild(salaryEl)
                 financeSec.appendChild(divEl)}
 
@@ -181,25 +182,22 @@ function submition(event){
     newEmployee.render()
     saveData(employeeList)
 }
-console.log(employeeList[0].Salary())
+console.log(employeeList[0].Salary)
 function saveData(data){
     let stringifyData = JSON.stringify(data)
     localStorage.setItem('employee',stringifyData)
-    let salaries =[]
-     for (let i =0;i<employeeList.length;i++){
-salaries.push(employeeList[i].Salary())
-    }
-    localStorage.setItem('salaries',salaries)
 }
 function getData(){
     let callData = localStorage.getItem('employee')
     let dataArr = JSON.parse(callData)
-    for (let i =7;i<dataArr.length;i++){
-        new employee(dataArr[i].fName,dataArr[i].department,dataArr[i].level,dataArr[i].img)
+    if (dataArr != null){for (let i =7;i<dataArr.length;i++){
+        new employee(dataArr[i].fName,dataArr[i].department,dataArr[i].level,dataArr[i].img,dataArr[i].Salary)
         employeeList[i].render();
     }
+}
+}
   
     
-}
-getData();
+
 console.log(employeeList)
+getData();
