@@ -115,9 +115,15 @@ footer img{
     width: 30px;
     padding-left: 20px;
 }
-table, th,td{
+ th,td{
     border: 1px solid;
     padding: 20px;
     margin: 10px;
 }
+table {
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+}
+
 

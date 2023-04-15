@@ -15,29 +15,7 @@ let totalNoEl = document.getElementById('totalNo');
 let totalAvgEl = document.getElementById('totalAvg');
 let totalTotalEl = document.getElementById('totalTotal');
 
-
-
-let salaries;
-function getData(){
-    let callData = localStorage.getItem('employee')
-    let dataArr = JSON.parse(callData)
-    for (let i =0;i<dataArr.length;i++){
-        new employee(dataArr[i].fName,dataArr[i].department,dataArr[i].level,dataArr[i].img)
-    }
-     let callData1 = localStorage.getItem('salaries')
-     salaries = callData1.split(',').map(Number)
-}
-let employeeList = [];
- 
-function employee(fullName,department,level,image){
-    this.fName=fullName;
-    this.department=department
-    this.level=level;
-    this.img=image;
-    employeeList.push(this);
-}
-let renderTable = function () {
-    let adminstrationNO = 0;
+let adminstrationNO = 0;
     let adminstrationSum = 0;
     let marketingNO = 0;
     let marketingSum = 0;
@@ -45,39 +23,77 @@ let renderTable = function () {
     let developmentSum = 0;
     let financeNO = 0;
     let financeSum = 0;
-    for (let i =0;i<employeeList.length;i++){
-        if(employeeList.i.department == 'adminstration'){
-            adminstrationNO = adminstrationNO + 1;
-            adminstrationSum+= salaries.i
+
+// let employeeList = [];
+// function employee(fullName,department,level,image,salary){
+//     this.fName=fullName;
+//     this.department=department
+//     this.level=level;
+//     this.img=image;
+//     this.salary=salary;
+//     employeeList.push(this);
+//     this.renderTable()
+// }
+
+    let callData = localStorage.getItem('employee')
+    let dataArr = JSON.parse(callData)
+    if (dataArr != null){for (let i =0;i<dataArr.length;i++){
+        
+        if(dataArr[i].department == 'adminstration'){
+            adminstrationNO++ ;
+            adminstrationSum+= dataArr[i].Salary;
         }
-        else if(employeeList.i.department == 'marketing'){
+        else if(dataArr[i].department == 'marketing'){
             marketingNO ++;
-            marketingSum+= salaries.i
+            marketingSum+= dataArr[i].Salary
         }
-        else if(employeeList.i.department == 'development'){
+        else if(dataArr[i].department == 'development'){
             developmentNO ++;
-            developmentSum+= salaries.i
+            developmentSum+= dataArr[i].Salary
         }
-        else if(employeeList.i.department == 'finance'){
+        else if(dataArr[i].department == 'finance'){
             financeNO ++;
-            financeSum+= salaries.i
-        }
-    }
+            financeSum+= dataArr[i].Salary;
+                }
+        // new employee(dataArr[i].fName,dataArr[i].department,dataArr[i].level,dataArr[i].img,dataArr[i].Salary)
+        // dataArr[i].renderTable()
+    }}
+
+ console.log(dataArr)
+// employee.prototype.renderTable = function () {
+    
+//         if(this.department == 'adminstration'){
+//             adminstrationNO++ ;
+//             adminstrationSum+= this.salary;
+//         }
+//         else if(this.department == 'marketing'){
+//             marketingNO ++;
+//             marketingSum+= this.salary
+//         }
+//         else if(this.department == 'development'){
+//             developmentNO ++;
+//             developmentSum+= this.salary
+//         }
+//         else if(this.department == 'finance'){
+//             financeNO ++;
+//             financeSum+= this.salary;
+//                 }
+//     }
     adminstrationNoEl.textContent=adminstrationNO;
-    adminstrationAvgEl.textContent=adminstrationSum/adminstrationNO;
+    adminstrationAvgEl.textContent=Math.round(adminstrationSum/adminstrationNO);
     adminstrationTotalEl.textContent=adminstrationSum;
     marketingNoEl.textContent=marketingNO;
-    marketingAvgEl.textContent=marketingSum/marketingNO;
+    marketingAvgEl.textContent=Math.round(marketingSum/marketingNO);
     marketingTotalEl.textContent=marketingSum;
     developmentNoEl.textContent=developmentNO;
-    developmentAvgEl.textContent=developmentSum/developmentNO;
+    developmentAvgEl.textContent=Math.round(developmentSum/developmentNO);
     developmentTotalEl.textContent=developmentSum;
     financeNoEl.textContent=financeNO;
-    financeAvgEl.textContent=financeSum/financeNO;
+    financeAvgEl.textContent=Math.round(financeSum/financeNO);
     financeTotalEl.textContent=financeSum;
     totalNoEl.textContent=adminstrationNO+marketingNO+developmentNO+financeNO;
     totalTotalEl.textContent=adminstrationSum+marketingSum+developmentSum+financeSum;
-    totalAvgEl.textContent=(adminstrationSum+marketingSum+developmentSum+financeSum)/(adminstrationNO+marketingNO+developmentNO+financeNO);
+    totalAvgEl.textContent=Math.round((adminstrationSum+marketingSum+developmentSum+financeSum)/(adminstrationNO+marketingNO+developmentNO+financeNO));
 
     
 //     tableEl.appendChild(trEl);
@@ -93,8 +109,6 @@ let renderTable = function () {
 //     let totalEl = document.createElement('td');
 //     totalEl.textContent = this.department;
 //     trEl.appendChild(totalEl);
- }
  
-renderTable()
 
-getData()
+
