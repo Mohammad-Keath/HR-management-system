@@ -33,6 +33,7 @@ let adminstrationNO = 0;
 //     this.salary=salary;
 //     employeeList.push(this);
 //     this.renderTable()
+// console.log
 // }
 
     let callData = localStorage.getItem('employee')
@@ -59,7 +60,7 @@ let adminstrationNO = 0;
         // dataArr[i].renderTable()
     }}
 
- console.log(dataArr)
+//  console.log(dataArr)
 // employee.prototype.renderTable = function () {
     
 //         if(this.department == 'adminstration'){
